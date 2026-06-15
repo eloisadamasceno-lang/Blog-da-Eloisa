@@ -6,22 +6,100 @@
     <title>Blog de Viagem da Eloisa</title>
     
     <style>
+        :root{
+            --trop-1: #FF7E5F; /* coral/pôr do sol */
+            --trop-2: #FEB47B; /* amarelo suave */
+            --trop-3: #06D6A0; /* verde-água */
+            --trop-4: #118AB2; /* azul-mar */
+            --sand: #FFF8F0;   /* areia clara */
+            --text: #233142;   /* texto escuro */
+        }
+
+        body {
+            background: linear-gradient(180deg, #FFFFFF 0%, #F7FCFB 100%);
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            -webkit-font-smoothing:antialiased;
+        }
+
         header {
-            background-color: #008080; /* Azul-turquesa escuro */
-            color: #FFFFFF;            /* Letras brancas */
-            text-align: center;        /* Centraliza o texto */
+            background: linear-gradient(135deg, var(--trop-1), var(--trop-3));
+            color: #fff;
+            text-align: center;
             max-width: 800px;
-            margin: 0 auto;
-            padding: 20px 0;           /* Dá um espaço interno no cabeçalho */
+            margin: 0 auto 20px auto;
+            padding: 28px 16px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(17,138,178,0.12);
+        }
+
+        header h1{
+            margin: 0 0 8px 0;
+            font-size: 28px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
         main {
-            background-color: #F4F6F7;  /* Fundo cinza bem clarinho para o texto */
-            color: #2C3E50;             /* Letras em azul escuro/grafite */
+            background-color: var(--sand);
+            color: var(--text);
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;              /* Afasta o texto das bordas */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(35,49,66,0.06);
         }
+
+        .gallery{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .gallery img{
+            width: 100%;
+            max-width: 360px;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            object-fit: cover;
+            height: 220px;
+        }
+
+        @media (max-width:480px){
+            .gallery img{height:160px;}
+            header h1{font-size:20px}
+        }
+
+        .destinations{
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px;
+            justify-content:center;
+            margin-top:12px;
+        }
+
+        .dest-card{
+            width:100%;
+            max-width:360px;
+            background:#fff;
+            border-radius:8px;
+            padding:8px;
+            box-shadow:0 6px 16px rgba(0,0,0,0.04);
+            text-align:left;
+        }
+
+        .dest-card img{width:100%; height:180px; object-fit:cover; border-radius:6px}
+        .dest-card h4{margin:8px 0 4px; font-size:16px}
+        .badge-discount{display:inline-block; background:var(--trop-2); color:#fff; padding:4px 8px; border-radius:12px; font-size:12px}
+        .dest-card .facts{margin:6px 0 0 0; padding-left:18px; color:#55606a}
+        .dest-card .facts li{margin-bottom:6px; font-size:14px}
+        .price{margin:8px 0 6px; font-weight:700}
+        .price .orig{text-decoration:line-through; color:#8a8f96; margin-right:8px; font-weight:600}
+        .price .final{color:var(--trop-4); margin-right:8px}
+        .discount-percent{display:inline-block; background:var(--trop-1); color:#fff; padding:4px 8px; border-radius:12px; font-size:12px}
     </style>
 </head>
 <body>
@@ -32,9 +110,126 @@
     </header>
 
     <main>
-        <h2>Minha primeira viagem</h2>
+        <h2>Minha viagem a Maragogi</h2>
         <p>Por: Eloisa</p>
-        <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar fotos, histórias e muitas curiosidades sobre os lugares que sempre sonhei em conhecer.</p>
+        <p>Compartilho aqui meu roteiro e custos aproximados para Maragogi — perfeita para quem ama piscinas naturais e praias de água cristalina.</p>
+
+        <section id="minha-viagem" aria-label="Relato da viagem a Maragogi">
+            <h3>Curiosidades da viagem</h3>
+            <ul>
+                <li>Visitei as Galés na maré baixa e nadei em piscinas naturais cheias de peixes coloridos.</li>
+                <li>A praia de Antunes tem trechos mais calmos e águas esverdeadas ideais para fotos.</li>
+                <li>Os passeios costumam sair de jangadas ou lanchas; combine o horário com a tábua de marés.</li>
+            </ul>
+
+            <h3>Custos aproximados (por pessoa)</h3>
+            <ul>
+                <li>Passagem (origem: São Paulo, ida e volta): R$ 600</li>
+                <li>Hospedagem (4 noites, pousada média): R$ 1.200 (R$ 300/noite)</li>
+                <li>Passeio às Galés (jangada/lancha): R$ 150</li>
+                <li>Alimentação (4 dias): R$ 240 (≈ R$ 60/dia)</li>
+                <li>Transporte local e extras: R$ 200</li>
+            </ul>
+            <p class="price">Total aproximado: <span class="final">R$ 2.390</span></p>
+            <p style="font-size:12px;color:#7a848c">*Valores aproximados e podem variar por temporada; consulte fornecedores locais.</p>
+        </section>
+
+        <section aria-label="Galeria de Maragogi" class="gallery" id="galeria-praias">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="Praia com água azul e ondas" />
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="Praia ao entardecer" />
+            <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="Barcos e coqueiros na praia" />
+        </section>
+
+        <section aria-label="Curiosidades sobre Maragogi" id="curiosidades-praias">
+            <h3>Praias de Maragogi — curiosidades e custos</h3>
+            <ul>
+                <li>Maragogi é famoso pelas piscinas naturais chamadas "Galés", formadas durante a maré baixa.</li>
+                <li>As melhores visitas às Galés acontecem na maré baixa; verifique a tábua de marés antes de ir.</li>
+                <li>Praias próximas populares: Praia de Antunes, Barra Grande e São Bento.</li>
+                <li>O ecossistema marinho é sensível — prefira tours conscientes e evite tocar nos corais.</li>
+            </ul>
+
+            <h4>Custos aproximados (valores por pessoa, em BRL)</h4>
+            <ul>
+                <li>Passeio de jangada/lancha às Galés: R$ 80 — R$ 200 (dependendo do tipo de barco e temporada).</li>
+                <li>Aluguel de cadeira/guarda-sol na praia: R$ 20 — R$ 50.</li>
+                <li>Transporte local (passeios/transfer dentro da região): R$ 30 — R$ 150.</li>
+                <li>Refeição média em quiosque/restaurante local: R$ 30 — R$ 80.</li>
+            </ul>
+            <p style="font-size:12px;color:#7a848c;margin-top:8px">*Valores aproximados. Consulte fornecedores locais para preços atualizados e disponibilidade.</p>
+        </section>
+
+        <section aria-label="Lugares turísticos" id="top-destinos">
+            <h3>Top 5 lugares turísticos pra quem ama praia</h3>
+            <div class="destinations">
+                <div class="dest-card">
+                    <img src="https://images.unsplash.com/photo-1505691723518-36a8b5d2fa6f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="Baía do Sancho, Fernando de Noronha" />
+                    <h4>Fernando de Noronha, Brasil</h4>
+                    <p>Famoso por suas praias e vida marinha.</p>
+                    <p><span class="badge-discount">Mais descontos: maio</span></p>
+                    <ul class="facts">
+                        <li>É uma unidade de conservação com acesso controlado e taxa ambiental.</li>
+                        <li>Tem população conhecida de golfinhos-rotadores e excelentes pontos de mergulho.</li>
+                    </ul>
+                    <p class="price"><span class="orig">R$ 3.500</span> <small>(≈ US$ 700)</small>
+                    <br><span class="final">R$ 2.975</span> <small>(≈ US$ 595)</small> <span class="discount-percent">-15%</span></p>
+                </div>
+
+                <div class="dest-card">
+                    <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="Praia nas Maldivas" />
+                    <h4>Maldivas</h4>
+                    <p>Ilhas paradisíacas com resorts sobre a água.</p>
+                    <p><span class="badge-discount">Mais descontos: maio</span></p>
+                    <ul class="facts">
+                        <li>Formadas por atóis baixos — muitos resorts ocupam ilhas inteiras.</li>
+                        <li>São vulneráveis à elevação do nível do mar.</li>
+                    </ul>
+                    <p class="price"><span class="orig">US$ 3.200</span> <small>(≈ R$ 16.000)</small>
+                    <br><span class="final">US$ 2.560</span> <small>(≈ R$ 12.800)</small> <span class="discount-percent">-20%</span></p>
+                </div>
+
+                <div class="dest-card">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="Praia em Phuket, Tailândia" />
+                    <h4>Phuket, Tailândia</h4>
+                    <p>Praias vibrantes e gastronomia local.</p>
+                    <p><span class="badge-discount">Mais descontos: setembro</span></p>
+                    <ul class="facts">
+                        <li>É a maior ilha da Tailândia e porta de entrada para várias ilhas próximas.</li>
+                        <li>Tem templos budistas, mercados noturnos e forte cultura gastronômica.</li>
+                    </ul>
+                    <p class="price"><span class="orig">US$ 1.200</span> <small>(≈ R$ 6.000)</small>
+                    <br><span class="final">US$ 900</span> <small>(≈ R$ 4.500)</small> <span class="discount-percent">-25%</span></p>
+                </div>
+
+                <div class="dest-card">
+                    <img src="https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="Praia nas Ilhas Maurício" />
+                    <h4>Ilhas Maurício</h4>
+                    <p>Praias, lagoas e trilhas naturais.</p>
+                    <p><span class="badge-discount">Mais descontos: maio</span></p>
+                    <ul class="facts">
+                        <li>Possui forte mistura cultural (africana, indiana, francesa).</li>
+                        <li>É conhecida por lagoas protegidas e esportes aquáticos como kite-surf.</li>
+                    </ul>
+                    <p class="price"><span class="orig">US$ 2.000</span> <small>(≈ R$ 10.000)</small>
+                    <br><span class="final">US$ 1.700</span> <small>(≈ R$ 8.500)</small> <span class="discount-percent">-15%</span></p>
+                </div>
+
+                <div class="dest-card">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=5" alt="Praia na Riviera Maya" />
+                    <h4>Riviera Maya, México</h4>
+                    <p>Praias e cenotes próximos.</p>
+                    <p><span class="badge-discount">Mais descontos: setembro</span></p>
+                    <ul class="facts">
+                        <li>Famosa pelos cenotes (poços naturais de água doce) ideais para mergulho.</li>
+                        <li>Próxima a ruínas maias como Tulum e Coba.</li>
+                    </ul>
+                    <p class="price"><span class="orig">US$ 1.100</span> <small>(≈ R$ 5.500)</small>
+                    <br><span class="final">US$ 880</span> <small>(≈ R$ 4.400)</small> <span class="discount-percent">-20%</span></p>
+                </div>
+            </div>
+            <p>Quer que eu adicione links, mapas ou pequenas descrições para cada destino?</p>
+            <p style="font-size:12px;color:#7a848c;margin-top:8px">*Conversão aproximada usada: US$ 1 = R$ 5,00</p>
+        </section>
     </main>
 
 </body>
